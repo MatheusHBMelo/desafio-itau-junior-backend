@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class TransacaoController {
             @ApiResponse(responseCode = "400", description = "Erro de requisição"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    public ResponseEntity<Void> criarTransacao(@RequestBody TransacaoRequestDto dto) {
+    public ResponseEntity<Void> criarTransacao(@RequestBody @Valid TransacaoRequestDto dto) {
         this.transacaoService.criarTransacao(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
