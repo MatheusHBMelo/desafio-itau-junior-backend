@@ -34,7 +34,7 @@ public class EstatisticaService {
                 estatisticas.getMin(),
                 estatisticas.getMax());
 
-        log.debug("Operação concluída em {}ms", System.currentTimeMillis() - startTime);
+        log.info("Operação concluída em {} ms", (System.currentTimeMillis() - startTime));
         return new EstatisticaResponseDto(estatisticas.getCount(),
                 estatisticas.getSum(),
                 estatisticas.getAverage(),
